@@ -230,7 +230,7 @@ To run mobile-use, simply pass your command as an argument.
 **Example 1: Basic Command**
 
 ```bash
-python ./src/mobile_use/main.py "Go to settings and tell me my current battery level"
+python ./minitap/mobile_use/main.py "Go to settings and tell me my current battery level"
 ```
 
 **Example 2: Data Scraping**
@@ -238,7 +238,7 @@ python ./src/mobile_use/main.py "Go to settings and tell me my current battery l
 Extract specific information and get it back in a structured format. For instance, to get a list of your unread emails:
 
 ```bash
-python ./src/mobile_use/main.py \
+python ./minitap/mobile_use/main.py \
   "Open Gmail, find all unread emails, and list their sender and subject line" \
   --output-description "A JSON list of objects, each with 'sender' and 'subject' keys"
 ```
