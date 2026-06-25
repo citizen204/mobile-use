@@ -17,6 +17,11 @@ def take_last(a, b):
     return b
 
 
+def merge_dicts(a, b):
+    """Merge two dicts; keys in b overwrite keys in a."""
+    return {**a, **b}
+
+
 class State(BaseModel):
     messages: Annotated[list[AnyMessage], "Sequential messages", add_messages]
     remaining_steps: Annotated[int | None, "Remaining steps before the task is completed"] = None
@@ -62,7 +67,7 @@ class State(BaseModel):
     scratchpad: Annotated[
         dict[str, str],
         "Persistent key-value storage for notes the agent can save and retrieve",
-        take_last,
+        merge_dicts,
     ] = {}
 
     async def asanitize_update(
