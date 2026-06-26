@@ -27,9 +27,10 @@ class SummarizerNode:
                 start_removal = True
             if start_removal and msg.id:
                 remove_messages.append(RemoveMessage(id=msg.id))
-            return await state.asanitize_update(
-                ctx=self.ctx,
-                update={
-                    "messages": remove_messages,
-                },
-            )
+
+        return await state.asanitize_update(
+            ctx=self.ctx,
+            update={
+                "messages": remove_messages,
+            },
+        )
